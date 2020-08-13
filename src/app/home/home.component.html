@@ -1,0 +1,61 @@
+
+<h1>Welcome!</h1>
+
+<div class="play-container">
+    <p>You've clicked <span (click)="countClick()">this</span> {{ clickCounter }} times. </p>
+</div>
+
+<div class="play-container">
+    <p>
+        <input type="text" [(ngModel)]="name">
+        <br>
+        You Said: <strong> {{ name }} </strong>
+    </p>
+</div>
+
+<!-- Simple single css style changer -->
+<div class="play-container" [style.background-color]="clickCounter > 4 ? 'yellow' : 'lightgray'">
+    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+        <p>The click counter <strong>IS GREATER</strong> than 4. </p>
+    </ng-template>
+
+    <ng-template #none>
+        <p>The click counter <strong>not greater</strong> than 4. </p>
+    </ng-template>
+</div>
+
+<!-- multiple css style changer -->
+<!-- <div class="play-container" [ngStyle]="{
+    'background-color': clickCounter > 4 ? 'yellow' : 'lightgray',
+    'border':           clickCounter > 4 ? '4px solid black' : 'none'
+}">
+    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+        <p>The click counter <strong>IS GREATER</strong> than 4. </p>
+    </ng-template>
+
+    <ng-template #none>
+        <p>The click counter <strong>not greater</strong> than 4. </p>
+    </ng-template>
+</div> -->
+
+<!-- css class activator -->
+<!-- <div class="play-container" [class.active]="clickCounter > 4">
+    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+        <p>The click counter <strong>IS GREATER</strong> than 4. </p>
+    </ng-template>
+
+    <ng-template #none>
+        <p>The click counter <strong>not greater</strong> than 4. </p>
+    </ng-template>
+</div> -->
+
+<!-- css multiple class activator -->
+<!-- <div class="play-container" [ngClass]="setClasses()">
+    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+        <p>The click counter <strong>IS GREATER</strong> than 4. </p>
+    </ng-template>
+
+    <ng-template #none>
+        <p>The click counter <strong>not greater</strong> than 4. </p>
+    </ng-template>
+</div> -->
